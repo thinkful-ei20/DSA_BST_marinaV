@@ -34,8 +34,32 @@ const findHeight = (tree) => {
   // }
 };
 
-console.log(findHeight(tree));
+// console.log(findHeight(tree));
 
+
+const isBST = tree => {
+  console.log('TREE', tree);
+  if (!tree) {
+    return true;
+  }
+
+  if (tree.left && tree.left.key > tree.key) {
+    return false;
+  }
+
+  if (tree.right && tree.right.key < tree.key) {
+    return false;
+  }
+
+  if (!isBST(tree.left) || !isBST(tree.right)) {
+    return false;
+  }
+
+  return true;
+
+};
+
+console.log(isBST(tree));
 
 
 // console.log(tree);
